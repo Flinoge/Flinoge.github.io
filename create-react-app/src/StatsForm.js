@@ -24,8 +24,6 @@ export default class StatsForm extends Component {
                         <form onSubmit={submitForm}>
                             <br/><h2>Class:</h2>
                             <Text field='Class' placeholder="Class"/>
-                            <br/><h2>Spec:</h2>
-                            <Text field='spec' placeholder="Specialization"/>
                             <br/><h2>Main Stat:</h2>
                             <Text field='mainStat' placeholder="Agil/Str/Int"/>
                             <br/><h2>Mastery:</h2>

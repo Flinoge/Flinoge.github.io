@@ -29,24 +29,6 @@ export default class MyForm extends Component {
                             <Text field='phone' placeholder="Phone Number"/>
                             <br/><h2>Email:</h2><br/>
                             <Text field='email' placeholder="Email"/>
-                            <div>
-                                <h2>Relationship Status (Optional)</h2>
-                                <Select field='status'
-                                    options={[{
-                                        label: 'Rather Not Say',
-                                        value: null
-                                      }, {
-                                        label: 'Single',
-                                        value: 'single'
-                                      }, {
-                                        label: 'In a Relationship',
-                                        value: 'relationship'
-                                      }, {
-                                        label: 'It\'s Complicated',
-                                        value: 'complicated'
-                                      }]}
-                                />
-                            </div>
                             <br/><br/>
                             <button id="submit" type='submit'>Submit</button>
                         </form>

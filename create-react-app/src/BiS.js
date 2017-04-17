@@ -5,11 +5,63 @@ import {Row, Col } from 'react-bootstrap';
 import Navbar from './navbar';
 import Title from './Title';
 import Footer from './Footer';
-import myJson from 'json/myJson.json';
+import myJson from './json/myJson.json';
 
 export default class BiS extends Component {
 
-    getItemInfo(){
+
+
+    getItemInfo = function(){
+        var Best = [];
+        var subc = 4;
+        var cl = 4;
+        var CritWeight = 100;
+        var MainStateWeight = 100;
+        var HasteWeight = 100;
+        var VersWeight = 100;
+        var MasteryWeight = 100;
+        function calculatePriority(myStats){
+            var totalPriority = 0;
+            for (var i = 0; i < myStats.length; i++){
+                if (myStats[i].stat === 3 || myStats[i].stat === 4 || myStats[i].stat === 5 || myStats[i].stat === 71 || myStats[i].stat === 72 || myStats[i].stat === 73 || myStats[i].stat === 74){
+                    totalPriority += myStats[i].amount * MainStateWeight;
+                }
+                if (myStats[i].stat === 32){
+                    totalPriority += myStats[i].amount * CritWeight;
+                }
+                if (myStats[i].stat === 36){
+                    totalPriority += myStats[i].amount * HasteWeight;
+                }
+                if (myStats[i].stat === 40){
+                    totalPriority += myStats[i].amount * VersWeight;
+                }
+                if (myStats[i].stat === 49){
+                    totalPriority += myStats[i].amount * MasteryWeight;
+                }
+            }
+            return totalPriority;
+        }
+        function getBiS() {
+            for (var j = 1; j < 17; j++) {
+                Best[j] = null;
+                for (var i = 0; i < myJson.length; i++) {
+                    if (myJson.inventoryType === j) {
+                        if (myJson[i].itemClass === cl) {
+                            if (myJson[i].itemSubClass === subc) {
+                                var temp = calculatePriority(myJson[i].bonusStats);
+                                if (Best[j] === null) {
+                                    Best[j] = myJson[i];
+                                }
+                                else if (temp > calculatePriority(Best[j].bonusStats)) {
+                                    Best[j] = myJson[i];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            changeThings();
+        }
         /*
 
         This of Weapons and their subclasses
@@ -152,40 +204,44 @@ export default class BiS extends Component {
         // myJson.name  -------Where we get the name
         // http://media.blizzard.com/wow/icons/56/inv_robe_cloth_raidmage_q_01.jpg;  ------Example for Icon
         // Setting all of the Images
-        document.getElementById("imgHelm").src = "";
-        document.getElementById("imgNeck").src = "";
-        document.getElementById("imgShoulders").src = "";
-        document.getElementById("imgChest").src = "";
-        document.getElementById("imgWaist").src = "";
-        document.getElementById("imgLegs").src = "";
-        document.getElementById("imgFeet").src = "";
-        document.getElementById("imgWrists").src = "";
-        document.getElementById("imgHands").src = "";
-        document.getElementById("imgFingerOne").src = "";
-        document.getElementById("imgFingerTwo").src = "";
-        document.getElementById("imgTrinkitOne").src = "";
-        document.getElementById("imgTrinkitTwo").src = "";
-        document.getElementById("imgBack").src = "";
-        document.getElementById("imgMainHand").src = "";
-        document.getElementById("imgOffHand").src = "";
-        // Setting all of the Item Names
-        document.getElementById("headName").innerHTML = "";
-        document.getElementById("neckName").innerHTML = "";
-        document.getElementById("shouldersName").innerHTML = "";
-        document.getElementById("chestName").innerHTML = "";
-        document.getElementById("waistName").innerHTML = "";
-        document.getElementById("legsName").innerHTML = "";
-        document.getElementById("feetName").innerHTML = "";
-        document.getElementById("wristsName").innerHTML = "";
-        document.getElementById("handsName").innerHTML = "";
-        document.getElementById("fingeroneName").innerHTML = "";
-        document.getElementById("fingertwoName").innerHTML = "";
-        document.getElementById("trinkitoneName").innerHTML = "";
-        document.getElementById("trinkittwoName").innerHTML = "";
-        document.getElementById("backName").innerHTML = "";
-        document.getElementById("mainhandName").innerHTML = "";
-        document.getElementById("offhandName").innerHTML = "";
-    }
+
+        function changeThings() {
+            document.getElementById("imgHelm").src = "http://media.blizzard.com/wow/icons/56/" + Best[1].icon;
+            document.getElementById("imgNeck").src = "http://media.blizzard.com/wow/icons/56/" + Best[2].icon;
+            document.getElementById("imgShoulders").src = "http://media.blizzard.com/wow/icons/56/" + Best[3].icon;
+            document.getElementById("imgChest").src = "http://media.blizzard.com/wow/icons/56/" + Best[4].icon;
+            document.getElementById("imgWaist").src = "http://media.blizzard.com/wow/icons/56/" + Best[5].icon;
+            document.getElementById("imgLegs").src = "http://media.blizzard.com/wow/icons/56/" + Best[6].icon;
+            document.getElementById("imgFeet").src = "http://media.blizzard.com/wow/icons/56/" + Best[7].icon;
+            document.getElementById("imgWrists").src = "http://media.blizzard.com/wow/icons/56/" + Best[8].icon;
+            document.getElementById("imgHands").src = "http://media.blizzard.com/wow/icons/56/" + Best[9].icon;
+            document.getElementById("imgFingerOne").src = "http://media.blizzard.com/wow/icons/56/" + Best[10].icon;
+            document.getElementById("imgFingerTwo").src = "http://media.blizzard.com/wow/icons/56/" + Best[11].icon;
+            document.getElementById("imgTrinkitOne").src = "http://media.blizzard.com/wow/icons/56/" + Best[12].icon;
+            document.getElementById("imgTrinkitTwo").src = "http://media.blizzard.com/wow/icons/56/" + Best[13].icon;
+            document.getElementById("imgBack").src = "http://media.blizzard.com/wow/icons/56/" + Best[14].icon;
+            document.getElementById("imgMainHand").src = "http://media.blizzard.com/wow/icons/56/" + Best[15].icon;
+            document.getElementById("imgOffHand").src = "http://media.blizzard.com/wow/icons/56/" + Best[16].icon;
+            // Setting all of the Item Names
+            document.getElementById("headName").innerHTML = Best[1].name;
+            document.getElementById("neckName").innerHTML = Best[2].name;
+            document.getElementById("shouldersName").innerHTML = Best[3].name;
+            document.getElementById("chestName").innerHTML = Best[4].name;
+            document.getElementById("waistName").innerHTML = Best[5].name;
+            document.getElementById("legsName").innerHTML = Best[6].name;
+            document.getElementById("feetName").innerHTML = Best[7].name;
+            document.getElementById("wristsName").innerHTML = Best[8].name;
+            document.getElementById("handsName").innerHTML = Best[9].name;
+            document.getElementById("fingeroneName").innerHTML = Best[10].name;
+            document.getElementById("fingertwoName").innerHTML = Best[11].name;
+            document.getElementById("trinkitoneName").innerHTML = Best[12].name;
+            document.getElementById("trinkittwoName").innerHTML = Best[13].name;
+            document.getElementById("backName").innerHTML = Best[14].name;
+            document.getElementById("mainhandName").innerHTML = Best[15].name;
+            document.getElementById("offhandName").innerHTML = Best[16].name;
+        }
+        getBiS();
+    };
 
     render() {
         return (

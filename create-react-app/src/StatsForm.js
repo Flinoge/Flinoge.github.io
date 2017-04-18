@@ -6,11 +6,29 @@ import './App.css';
 import { Form, Text, Select } from 'react-form'
 
 export default class StatsForm extends Component {
+
+
+
     render() {
         return (
             <Form onSubmit={(values) => {
-      console.log('Success!', values)
-    }} validate={({ Class, mainStat, mastery, haste, crit, vers }) => {
+      console.log('Success!', values);
+      localStorage.setItem('myClass', values.Class);
+      localStorage.setItem('CritWeight', values.crit);
+      localStorage.setItem('MainStateWeight', values.mainStat);
+      localStorage.setItem('HasteWeight', values.haste);
+      localStorage.setItem('VersWeight', values.vers);
+      localStorage.setItem('MasteryWeight', values.mastery);
+    }}
+                  defaultValues={{
+                  Class:parseInt(localStorage.getItem('myClass')),
+                  mainStat:localStorage.getItem('MainStateWeight'),
+                  mastery:localStorage.getItem('MasteryWeight'),
+                  haste:localStorage.getItem('HasteWeight'),
+                  crit:localStorage.getItem('CritWeight'),
+                  vers:localStorage.getItem('VersWeight')
+                  }}
+                  validate={({ Class, mainStat, mastery, haste, crit, vers }) => {
       return {
         Class: !Class ? 'A class is required' : undefined,
         mainStat: !mainStat ? 'A Main Stat Weight is required' : undefined,

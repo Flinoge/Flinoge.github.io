@@ -4,7 +4,6 @@
     <list default="true" id="61b504f9-0a1a-4846-9011-6f3f680ba0a0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create-react-app/src/BiS.js" afterPath="$PROJECT_DIR$/create-react-app/src/BiS.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create-react-app/src/StatsForm.js" afterPath="$PROJECT_DIR$/create-react-app/src/StatsForm.js" />
     </list>
     <ignored path="React-Github.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +49,8 @@
       <file leaf-file-name="BiS.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create-react-app/src/BiS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="369" column="24" selection-start-line="369" selection-start-column="24" selection-end-line="369" selection-end-column="24" />
+            <state relative-caret-position="245">
+              <caret line="274" column="45" selection-start-line="274" selection-start-column="45" selection-end-line="274" selection-end-column="45" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -396,12 +395,12 @@
       <workItem from="1491404218667" duration="1287000" />
       <workItem from="1492015211656" duration="1128000" />
       <workItem from="1492016566100" duration="9259000" />
-      <workItem from="1492440680862" duration="18324000" />
+      <workItem from="1492440680862" duration="19804000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80289000" />
+    <option name="totallyTimeSpent" value="81769000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="1176" extended-state="0" />
@@ -742,8 +741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/create-react-app/src/BiS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="369" column="24" selection-start-line="369" selection-start-column="24" selection-end-line="369" selection-end-column="24" />
+        <state relative-caret-position="245">
+          <caret line="274" column="45" selection-start-line="274" selection-start-column="45" selection-end-line="274" selection-end-column="45" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

@@ -109,7 +109,7 @@ export default class BiS extends Component {
     getItemInfo(myClass, CritWeight, MainStateWeight, HasteWeight, VersWeight, MasteryWeight){
         if (myClass === null){
             alert("Please Put in Your Stat Priorities");
-            browserHistory.push('/#/BiS');
+            browserHistory.push('/Gear-Helper/#/');
             return;
         }
         myClass = parseInt(myClass);
